@@ -89,21 +89,40 @@ The time within which the PLL is able to lok in from an unlocked state is called
 # # Simulations & Layout
 The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
 1. Phase Difference Detection
+
     Illustrated below is a pre-layout simulation of the Phase Different Detection circuit.
 ![pd](https://user-images.githubusercontent.com/90972284/133919934-34c13a79-48e8-41de-b630-edd636429003.jpg)
 
 As seen from the image, the Down signal is activated using the AND operation illustrated in the schematic.
+
+2. Charge Pump
+
+    Illustrated below is a pre-layout simulation of the Charge Pump circuit.
     
-    Given below is the layout drawing of the Phase Difference Detecting Circuit. Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
+![charge_pump](https://user-images.githubusercontent.com/90972284/133920005-b15162bb-ef90-4a97-8b6c-6adfb79afc88.jpg)
+
+As seen from the image, the voltage across the capacitor is steadly rising. Additionally the oscillating variation can be observed from the circuit as well.
+
+3. Frequency Divider
+
+    Illustrated below is a pre-layout simulation of the Frequency Divider circuit.
+    
+ ![freq_divider](https://user-images.githubusercontent.com/90972284/133920049-0e7541dc-b3a7-4f4e-bd99-dbe30245784c.jpg)
+ 
+ As seen from the image, the frequency of the output is getting divided by half as compared to the input. 
+ 
+ Now that the individual components of the circuit are functioning properly, they can be connected to each other appropriately to evaluate the working of the whole PLL.
+ 
+ 4. PLL 
+ 5. 
+    Illustrated below is the pre-layout simulation of the PLL.
+    
+ ![pll_imp](https://user-images.githubusercontent.com/90972284/133920281-12cd642f-a976-4f9c-b394-525f68748135.jpg)
+As seen from the above image, the PLL output follows the reference signal exactly, and suffers a delay less than 0.5 ns. This proves that a high degree of match with the reference signal has been successfully obtained by the PLL.
+
+    
+Given below is the layout drawing of the Phase Difference Detecting Circuit. Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
 ![PFD_Layout](https://user-images.githubusercontent.com/90972284/133919360-6c598f4e-5366-4410-95ff-29e91c077cc4.jpg)
-
-![charge_pump](https://user-images.githubusercontent.com/90972284/133919091-51dae6ad-ce2e-4785-95ec-e9830458f482.jpg)
-
-![pll1](https://user-images.githubusercontent.com/90972284/133919116-66a2a889-0130-4c5f-8d02-7b4d3081e5b4.jpg)
-
-![pll2](https://user-images.githubusercontent.com/90972284/133919120-73eb400b-5acd-451c-a68c-5070e1819fa1.jpg)
-
-![pll_imp](https://user-images.githubusercontent.com/90972284/133919122-058ff462-e01c-4f63-9d0f-23309da67c6a.jpg)
 
 # # Layout Design
 
