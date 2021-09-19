@@ -23,9 +23,9 @@ A Phase Locked Loop an Analog IP (Intellectual Property) that is used to generat
 
 # An Overview of the Design Procedure
 There are several steps that have to be carried out from the inception of a design till its layout to obtain a precisely functioning IP. The following points discuss the important steps that have been carried out for the PLL.
-1. Simulations: Different components of a large circuit system like a PLL have to be simulated first. Simulations make use of specifications given in the PDK to make copies of transistors. While performing simulations, transistor sizing, voltages and currents in each sub-circuit have to be adjusted to get a desired output. Simulations help in checking the overall functionality of the circuit. In this project, simulations have been carried out using Ngspice.
-2. Layout: Layout refers to constructing a schematic diagram of different layers of transistors and interconnecting components. Once successful simulations of the IC have been carried out, the layout or the mask is drawn. The nature of materials that make up transistors and interconnects introudce delays and other material-dependent aberrations in the circuit. In this project, the IC layout has been drawn using Magic. Design Rule Checking is a method to verify whether a particular design is compliant with the restrictions posed by the process technology. Layout helps in executing DRC and extracts the necessary parasitics associated with the design.
-3. Post-Layout Simulations: Once the parasititcs have been extracted, the are appended to the SPICE file created pre-layout and simulated again. This gives a more realistic picture of the functioning of the IP, complete with the inclusion of all delays and parasitics. After the post-layout simulations have been verified, the circuit can be sent to foundries for tapeout.
+1. Simulations: Different components of a large circuit system like a PLL have to be simulated first. Simulations make use of specifications given in the PDK to make copies of transistors. While performing simulations, transistor sizing, voltages and currents in each sub-circuit have to be adjusted to get the desired output. Simulations help in checking the overall functionality of the circuit. In this project, simulations have been carried out using Ngspice.
+2. Layout: Layout refers to constructing a schematic diagram of different layers of transistors and interconnecting components. Once successful simulations of the IC have been carried out, the layout or the mask is drawn. The nature of materials that make up transistors and interconnects introduce delays and other material-dependent aberrations in the circuit. In this project, the IC layout has been drawn using Magic. Design Rule Checking is a method to verify whether a particular design is compliant with the restrictions posed by the process technology. Layout helps in executing DRC and extracts the necessary parasitics associated with the design.
+3. Post-Layout Simulations: Once the parasitics have been extracted, they are appended to the SPICE file created pre-layout and simulated again. This gives a more realistic picture of the functioning of the IP, complete with the inclusion of all delays and parasitics. After the post-layout simulations have been verified, the circuit can be sent to foundries for tapeout.
 
 Figure 1: A Flow-Chart Illustrating the Design FLow
 
@@ -33,8 +33,8 @@ Figure 1: A Flow-Chart Illustrating the Design FLow
 
 # PLL Components and Working
 A PLL generates a precise and pure clock signal, i.e., a signal that oscillates between a high and low voltage at a specified frequency. Clock Signals can be generated in two ways. 
-1. Using Quartz Crystals: Upon passing a mechanical stress across the faces of a Quartz crystal, an electric voltage that oscillates at a given frequency is obtained as a result of the piezoelectric nature of the crystal. The frequency spectrum of this signal is pure, and there exist no spikes at any unwanted frequency. However, a pure quartz crystal oscillator suffers a limitation of being restricted to only a single frequency, and cannot be tuned. 
-2. Voltage Controlled Oscillators: This is a circuit component can be implemented on-chip. It allows a good control over the spectral purity and frequency, and offers the additional feature of tunability. 
+1. Using Quartz Crystals: Upon passing mechanical stress across the faces of a Quartz crystal, an electric voltage that oscillates at a given frequency is obtained as a result of the piezoelectric nature of the crystal. The frequency spectrum of this signal is pure, and there exist no spikes at any unwanted frequency. However, a pure quartz crystal oscillator suffers a limitation of being restricted to only a single frequency, and cannot be tuned. 
+2. Voltage Controlled Oscillators: This is a circuit component that can be implemented on-chip. It allows good control over the spectral purity and frequency and offers the additional feature of tunability. 
 
 PLLs are used to make the VCO mimic the spectral purity of a Quartz oscillator while maintaining flexibility. 
 
@@ -42,13 +42,13 @@ Figure 2: Frequency Spectrum of (a) Crystal Oscillator and (b) VCO
 
 ![freqspec](https://user-images.githubusercontent.com/90972284/133916808-8d81438e-ae1e-4755-9821-452a887f4b21.png)
 
-The mechanism by which PLL makes a VCO oscillate is by comparing the signal generated by a VCO to a reference signal and adjusting the error to ensure the VCO output mimics tlhe reference signal. Mimicing implies that the output generated differs from the input by a perfectly controlled frequency or phase amount. The reference signal could be generated by a Quartz crystal. The working of the PLL above can be illustrated using a control system. 
+The mechanism by which the PLL makes a VCO oscillate is by comparing the signal generated by a VCO to a reference signal and adjusting the error to ensure the VCO output mimics the reference signal. Mimicking implies that the output generated differs from the input by a perfectly controlled frequency or phase amount. The reference signal could be generated by a Quartz crystal. The working of the PLL above can be illustrated using a control system. 
 
 Figure 3: Control System Illustration of the working of a PLL
 
 ![controlsystem](https://user-images.githubusercontent.com/90972284/133916993-d5fec7f3-f1a6-4dbd-8a50-837d86ffe250.png)
 
-The working of the different components of this control system are discussed below.
+The working of the different components of this control system is discussed below.
 
 ## Phase Frequency Detector (PFD)
 The PFD compares the feedback signal with the reference signal. There are two possibilities. 
@@ -57,13 +57,13 @@ a. the output lags the reference
 
 b. the output leads the reference
 
-For these distinct cases, the preceeding rising or falling edges can be detected using a Flip-Flop. Two flip-flops are used, one each for each signal, and their outputs are tied using an AND gate to their respective reset CLR pins. The state diagram of the above circuit is shown below.
+For these distinct cases, the preceding rising or falling edges can be detected using a Flip-Flop. Two flip-flops are used, one each for each signal and their outputs are tied using an AND gate to their respective reset CLR pins. The state diagram of the above circuit is shown below.
 
 Figure 4: State Diagram Explaining the Incorporation of Up and Down signals
 
 ![statediag](https://user-images.githubusercontent.com/90972284/133917218-e34b0138-ef65-4455-8099-9c57d0153225.png)
 
-A drawback in this circuit would occur if the two signals had a very small delay. This is called the dead-zone, and it prevents from imporving very small delays (<1ns). The only way to compensate for this would be to design a more sensitive PFD.
+A drawback in this circuit would occur if the two signals had a very small delay. This is called the dead-zone, and it prevents improving very small delays (<1ns). The only way to compensate for this would be to design a more sensitive PFD.
 
 ## Charge Pump
 A charge pump converts the digital measure of the difference in phase or frequency into an analog signal that is fed into the VCO. Charge pumps are implemented using current steering circuits. 
@@ -72,7 +72,7 @@ Figure 5: Current Steering Circuit
 
 ![currentster](https://user-images.githubusercontent.com/90972284/133917425-17e6635b-794d-4b83-b5a7-d9b649c8972c.png)
 
-The reluctance of the capacitance to change the voltage across it immediately smoothens or averages the voltage. A limitation in this circuit would be the presence of leakage currents even when both transistors are off. Additionally there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
+The reluctance of the capacitance to change the voltage across it immediately smoothens or averages the voltage. A limitation in this circuit would be the presence of leakage currents even when both transistors are off. Additionally, there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
 Some rules for picking capacitances:
 
 a. C = C_LPF/10
@@ -80,9 +80,9 @@ a. C = C_LPF/10
 b. Loop Filter Bandwidth = (Highest output frequency of PLL)/10
 
 ## Voltage Controlled Oscillator (VCO)
-A VCO is implemented using a Ring Oscillator, which is a series of odd number of inverters with a specific delay. The time period of the ring oscillator is given by
+A VCO is implemented using a Ring Oscillator, which is a series of an odd number of inverters with a specific delay. The time period of the ring oscillator is given by
 P = 2(delay of each inverter)(inverter count).
-The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. Current starving mechanism is used to control the oscillation frequency. The range of frequencies that the VCO can produce must be in agreement with the frequencies required out of the overall PLL.
+The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. A current starving mechanism is used to control the oscillation frequency. The range of frequencies that the VCO can produce must be in agreement with the frequencies required out of the overall PLL.
 
 Figure 6: Image of a Ring Oscillator (Source: Wikipedia)
 
@@ -90,7 +90,7 @@ Figure 6: Image of a Ring Oscillator (Source: Wikipedia)
 
 
 ## Frequency Divider
-The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in back connecting the output to the input. 
+The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in the back connecting the output to the input. 
 
 Figure 7: Frequency Divider Circuit
 
@@ -99,13 +99,13 @@ Figure 7: Frequency Divider Circuit
 
 # Figures of Merit of the Phase Locked Loop
 ## Lock Range
-The range of frequencies for which PLL maintains its lock once it has already been locked is called the Lock Range. This parameter is limited by the dead-zone. 
+The range of frequencies for which PLL maintains its lock once it has already been locked is called the Lock Range. This parameter is limited by the dead zone. 
 
 ## Capture Range
 The range of frequencies for which the PLL maintains the lock once it moves from the unlock to the locked zone. Usually, the capture range is smaller than the lock range. 
 
 ## Settling Time 
-The time within which the PLL is able to lok in from an unlocked state is called the Settling Time of the PLL.
+The time within which the PLL is able to lock in from an unlocked state is called the Settling Time of the PLL.
 
 # Experiments
 Some standard parameters are considered while making the SPICE files. 
@@ -115,7 +115,7 @@ Some standard parameters are considered while making the SPICE files.
 3. Reference Clock = 5 to 12.5 MHz
 4. Output Clock = 40 to 100 MHz (the Frequency Divider Circuit makes use of 3 inverters, which would result in the overall frequency multiplication by 8 times).
 
-Transient analysises for specific time intervals is carried for different circuit components and then the PLL as a whole. Parameters such as jitter and capacitive loading are omitted to maintain simplicity in this particular design. 
+Transient analyses for specific time intervals are carried for different circuit components and then the PLL as a whole. Parameters such as jitter and capacitive loading are omitted to maintain simplicity in this particular design. 
 
 ## Pre-Layout Simulations
 The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
@@ -137,7 +137,7 @@ As seen from the image, the Down signal is activated using the AND operation ill
 
 ![charge_pump](https://user-images.githubusercontent.com/90972284/133920005-b15162bb-ef90-4a97-8b6c-6adfb79afc88.jpg)
 
-As seen from the image, the voltage across the capacitor is steadly rising. Additionally, the fluctuations in the voltage as it rises are observed, which correspond to the rising and falling of the Up and Down signals.
+As seen from the image, the voltage across the capacitor is steadily rising. Additionally, the fluctuations in the voltage as it rises are observed, which correspond to the rising and falling of the Up and Down signals.
 
 3. VCO
 
@@ -171,13 +171,13 @@ As seen from the image oscillations have been successfully generated. The oscill
     
  ![pll_imp](https://user-images.githubusercontent.com/90972284/133920281-12cd642f-a976-4f9c-b394-525f68748135.jpg)
  
-As seen from the above image, the PLL output follows the reference signal exactly, and suffers a delay less than 0.5 ns. This proves that a high degree of match with the reference signal has been successfully obtained by the PLL.
+As seen from the above image, the PLL output follows the reference signal exactly and suffers a delay of fewer than 0.5 ns. This proves that a high degree of match with the reference signal has been successfully obtained by the PLL.
 
 Now that the pre-layout simulation of the PLL has been completed and no errors in operation have been observed, the next step to achieving the design goals (layout) can be carried out.
 
 ## Layout Design
 
-Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
+Different colours in the layout indicate different materials used to build different lithographical layers in the semiconductor well.
 
 1. PFD
 
@@ -226,7 +226,7 @@ For study purposes, the post-layout simulation has been carried out with a 10ns 
 Extraction is carried out using the following code.
 ```
 extract all %extracts all parasitics from the layout
-ext2spice cthresh 0 rethresh 0 
+ext2spice cthresh 0 rthresh 0 
 % the previous command is basically setting the threshold or minimum value of R and C that counts as a parasitic
 ext2spice %conversion to SPICE
 ```
@@ -249,16 +249,16 @@ As seen from the above images, the PLL is also able to successfully generate the
 
 # Final Integration and Tapeout
 There are certain important intermediate steps that have to be carried out before tapeout so that the newly created IP can interface with the external hardware components easily. Some examples are:
-1. I/O Padding - Since the designed IP would be sized in the order of micrometer, it cannot be connected to other hardware components using wires. Dedicated I/O pins have to be specified for the IP.
-2. Peripherals: In order to have serial connectivity, peripherials associated with serial communication protocols must be integrated with existing designs. 
-3. Memory: If some kind of memory devices are required to interact and interface with the IP, dedicated procedures have to followed to accommodate for their operation.
+1. I/O Padding - Since the designed IP would be sized in the order of micrometres, it cannot be connected to other hardware components using wires. Dedicated I/O pins have to be specified for the IP.
+2. Peripherals: In order to have serial connectivity, peripherals associated with serial communication protocols must be integrated with existing designs. 
+3. Memory: If some kind of memory devices are required to interact and interface with the IP, dedicated procedures have to be followed to accommodate for their operation.
 
-Ensuring that the IP meets all of the above criterion is a tedious task, therefore, the IP is made to ride on the Caravel SoC Vehicle by Efabless.
-The IP is placed and routed inside the contained. PnR can be completed either manually or using tools such as OpenLane. Once the PnR has been completed, the verification of the SoC's connectivity is carried out. This is then integrated onto the SoC and goes through another round of verification to ensure that the behaviours are as expected. 
+Ensuring that the IP meets all of the above criteria is a tedious task, therefore, the IP is made to ride on the Caravel SoC Vehicle by Efabless.
+The IP is placed and routed inside the container. PnR can be completed either manually or using tools such as OpenLane. Once the PnR has been completed, the verification of the SoC's connectivity is carried out. This is then integrated onto the SoC and goes through another round of verification to ensure that the behaviours are as expected. 
 
 # References
 [1] Franco, S. (2020). *Design with Operational Amplifiers and Analog Integrated Circuits.
 
-[2] *Analog integrated Circuits by Dr. Shouri Chatterjee*. YouTube. Retrieved September 19, 2021, from https://www.youtube.com/playlist?list=PLpiNwuPPfrOlH9S06zLFxbcnVNz5ogDUf. 
+[2] *Analog integrated Circuits by Dr Shouri Chatterjee*. YouTube. Retrieved September 19, 2021, from https://www.youtube.com/playlist?list=PLpiNwuPPfrOlH9S06zLFxbcnVNz5ogDUf. 
 
 [3] Razavi, Behzad. *Design of Analog CMOS Integrated Circuits.
