@@ -97,7 +97,7 @@ Figure 7: Frequency Divider Circuit
 ![freq_divider jpg](https://user-images.githubusercontent.com/90972284/133924806-eb595830-1cba-4850-8131-bc30c482fa16.png)
 
 
-# PLL Figures of Merit
+# Figures of Merit of the Phase Locked Loop
 ## Lock Range
 The range of frequencies for which PLL maintains its lock once it has already been locked is called the Lock Range. This parameter is limited by the dead-zone. 
 
