@@ -10,4 +10,7 @@ Figure 1: A Flow-Chart Illustrating the Design FLow
 
 # PLL Components and Working
 A PLL generates a precise and pure clock signal, i.e., a circuit that oscillates between a high and low voltage at a specified frequency. Clock Signals can be generated in two ways. 
-1. Using Quartz Crystals: Upon passing a mechanical stress across the faces of a Quartz crystal, an electric voltage that oscillates at a given frequency is obtained. The frequency spectrum of this signal is pure, and there exist no spikes at any unwanted frequency.
+1. Using Quartz Crystals: Upon passing a mechanical stress across the faces of a Quartz crystal, an electric voltage that oscillates at a given frequency is obtained. The frequency spectrum of this signal is pure, and there exist no spikes at any unwanted frequency. However, a pure quartz crystal oscillator suffers a limitation of being restricted to only a single frequency, and cannot be tuned. 
+2. Voltage Controlled Oscillators: This is a circuit component can be implemented on-chip. It allows a good control over the spectral purity and frequency, and offers the additional feature of tunability. 
+
+PLLs are used to make the VCO mimic the spectral purity of a Quartz oscillator while maintaining flexibility. 
