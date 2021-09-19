@@ -1,5 +1,7 @@
 # PLL-Design-Using-Google-Sky-130nm
 A Phase Locked Loop an Analog IP (Intellectual Property) that is used to generate a clock signal for digital synchronous circuit systems. This repo walks through the end-to-end design of a Phase Locked Loop, designed on the Skywater 130nm technology node. The design, simulation and layout of this PLL have been carried out using Open Source tools such as Ngspice (for simulations), Magic (for layout) and the Sky130 PDK (Process Design Kit for the transistor specifications).
+
+
 # An Overview of the Design Procedure
 There are several steps that have to be carried out from the inception of a design till its layout to obtain a precisely functioning IP. The following points discuss the important steps that have been carried out for the PLL.
 1. Simulations: Different components of a large circuit system like a PLL have to be simulated first. Simulations make use of specifications given in the PDK to make copies of transistors. While performing simulations, transistor sizing, voltages and currents in each sub-circuit have to be adjusted to get a desired output. Simulations help in checking the overall functionality of the circuit. In this project, simulations have been carried out using Ngspice.
@@ -29,7 +31,7 @@ Figure 3: Control System Illustration of the working of a PLL
 
 The working of the different components of this control system are discussed below.
 
-# Phase Frequency Detector (PFD)
+## Phase Frequency Detector (PFD)
 The PFD compares the feedback signal with the reference signal. There are two possibilities. 
 
 a. the output lags the reference 
@@ -44,7 +46,7 @@ Figure 4: State Diagram Explaining the Incorporation of Up and Down signals
 
 A drawback in this circuit would occur if the two signals had a very small delay. This is called the dead-zone, and it prevents from imporving very small delays (<1ns). The only way to compensate for this would be to design a more sensitive PFD.
 
-# Charge Pump
+## Charge Pump
 A charge pump converts the digital measure of the difference in phase or frequency into an analog signal that is fed into the VCO. Charge pumps are implemented using current steering circuits. 
 
 Figure 5: Current Steering Circuit
@@ -58,7 +60,7 @@ a. C = C_LPF/10
 
 b. Loop Filter Bandwidth = (Highest output frequency of PLL)/10
 
-# Voltage Controlled Oscillator (VCO)
+## Voltage Controlled Oscillator (VCO)
 A VCO is implemented using a Ring Oscillator, which is a series of odd number of inverters with a specific delay. The time period of the ring oscillator is given by
 P = 2(delay of each inverter)(inverter count).
 The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. Current starving mechanism is used to control the oscillation frequency. The range of frequencies that the VCO can produce must be in agreement with the frequencies required out of the overall PLL.
@@ -68,29 +70,40 @@ Figure 6: Image of a Ring Oscillator (Source: Wikipedia)
 ![vco](https://user-images.githubusercontent.com/90972284/133918912-b482b1eb-35d4-4c93-aa01-1198ea72416b.jpg)
 
 
-# Frequency Divider
+## Frequency Divider
 The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in back connecting the output to the input. 
 
-Figure 7: Frequency Divider Circuit (Source: Electronics Tutorials)
+Figure 7: Frequency Divider Circuit
 
-![image](https://user-images.githubusercontent.com/90972284/133918952-aedebcc9-e6c1-487d-bc49-44b32bd26866.png)
+![freq_divider jpg](https://user-images.githubusercontent.com/90972284/133924806-eb595830-1cba-4850-8131-bc30c482fa16.png)
+
 
 # PLL Figures of Merit
-# # Lock Range
+## Lock Range
 The range of frequencies for which PLL maintains its lock once it has already been locked is called the Lock Range. This parameter is limited by the dead-zone. 
 
-# # Capture Range
+## Capture Range
 The range of frequencies for which the PLL maintains the lock once it moves from the unlock to the locked zone. Usually, the capture range is smaller than the lock range. 
 
-# # Settling Time 
+## Settling Time 
 The time within which the PLL is able to lok in from an unlocked state is called the Settling Time of the PLL.
 
 # Experiments
-# # Simulations & Layout
+Some standard parameters are considered while making the SPICE files. 
+
+1. VDD = 1.8V
+2. T = 27 Degrees Celcius
+3. Reference Clock = 5 to 12.5 MHz
+4. Output Clock = 40 to 100 MHz (the Frequency Divider Circuit makes use of 3 inverters, which would result in the overall frequency multiplication by 8 times).
+
+Parameters such as jitter and capacitive loading are omitted to maintain simplicity in this particular design. 
+
+## Simulations & Layout
 The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
 1. Phase Difference Detection
 
     Illustrated below is a pre-layout simulation of the Phase Different Detection circuit.
+    
 ![pd](https://user-images.githubusercontent.com/90972284/133919934-34c13a79-48e8-41de-b630-edd636429003.jpg)
 
 As seen from the image, the Down signal is activated using the AND operation illustrated in the schematic.
@@ -118,11 +131,12 @@ As seen from the image, the voltage across the capacitor is steadly rising. Addi
     Illustrated below is the pre-layout simulation of the PLL.
     
  ![pll_imp](https://user-images.githubusercontent.com/90972284/133920281-12cd642f-a976-4f9c-b394-525f68748135.jpg)
+ 
 As seen from the above image, the PLL output follows the reference signal exactly, and suffers a delay less than 0.5 ns. This proves that a high degree of match with the reference signal has been successfully obtained by the PLL.
 
 Now that the pre-layout simulation of the PLL has been completed and no errors in operation have been observed, the next step to achieving the design goals (layout) can be carried out.
 
-# # Layout Design
+## Layout Design
 
 Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
 
@@ -176,5 +190,10 @@ b. 1ns Delay
 
 As seen from the above images, the PLL is also able to successfully generate the clock signal. Even with a small lag of 1ns, the circuit is successfully functioning.
 
+# Final Integration and Tapeout
+There are certain important intermediate steps that have to be carried out before tapeout so that the newly created IP can interface with the external hardware components easily. Some examples are:
+1. I/O Padding - Since the designed IP would be sized in the order of micrometer, it cannot be connected to other hardware components using wires. Dedicated I/O pins have to be specified for the IP.
+2. Peripherals: In order to have serial connectivity, peripherials associated with serial communication protocols must be integrated with existing designs. 
+3. Memory: If some kind of memory devices are required to interact and interface with the IP, dedicated procedures have to followed to accommodate for their operation.
 
-
+Ensuring that the IP meets all of the above criterion is a tedious task, therefore, the IP is made to ride on the Caravel Efabless SoC Vehice
