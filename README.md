@@ -20,8 +20,6 @@ A Phase Locked Loop an Analog IP (Intellectual Property) that is used to generat
 - [Final Integration and Tapeout](#final-integration-and-tapeout)
 - [References](#references)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 # An Overview of the Design Procedure
 There are several steps that have to be carried out from the inception of a design till its layout to obtain a precisely functioning IP. The following points discuss the important steps that have been carried out for the PLL.
