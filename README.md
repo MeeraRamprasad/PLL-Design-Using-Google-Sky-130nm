@@ -174,6 +174,7 @@ Total Area of the PLL - 493 umsq.
 
 Parasitics are extracted from the layout of the PLL circuit. This file is then converted to a SPICE and then simulated. 
 For study purposes, the post-layout simulation has been carried out with a 10ns phase delay and a 1ns phase delay.
+
 a. 10ns Delay
 
 ![postlayout](https://user-images.githubusercontent.com/90972284/133923960-4c7c139d-cba8-42ae-be1f-33f714e10a8b.jpg)
@@ -196,4 +197,12 @@ There are certain important intermediate steps that have to be carried out befor
 2. Peripherals: In order to have serial connectivity, peripherials associated with serial communication protocols must be integrated with existing designs. 
 3. Memory: If some kind of memory devices are required to interact and interface with the IP, dedicated procedures have to followed to accommodate for their operation.
 
-Ensuring that the IP meets all of the above criterion is a tedious task, therefore, the IP is made to ride on the Caravel Efabless SoC Vehice
+Ensuring that the IP meets all of the above criterion is a tedious task, therefore, the IP is made to ride on the Caravel SoC Vehicle by Efabless.
+The IP is placed and routed inside the contained. PnR can be completed either manually or using tools such as OpenLane. Once the PnR has been completed, the verification of the SoC's connectivity is carried out. This is then integrated onto the SoC and goes through another round of verification to ensure that the behaviours are as expected. 
+
+# References
+[1] Franco, S. (2020). Design with Operational Amplifiers and Analog Integrated Circuits.
+
+[2] Analog integrated Circuits by Dr. Shouri Chatterjee. YouTube. Retrieved September 19, 2021, from https://www.youtube.com/playlist?list=PLpiNwuPPfrOlH9S06zLFxbcnVNz5ogDUf. 
+
+[3] Razavi, Behzad. "Design of Analog CMOS Integrated Circuits".
