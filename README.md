@@ -257,8 +257,8 @@ Ensuring that the IP meets all of the above criterion is a tedious task, therefo
 The IP is placed and routed inside the contained. PnR can be completed either manually or using tools such as OpenLane. Once the PnR has been completed, the verification of the SoC's connectivity is carried out. This is then integrated onto the SoC and goes through another round of verification to ensure that the behaviours are as expected. 
 
 # References
-[1] Franco, S. (2020). Design with Operational Amplifiers and Analog Integrated Circuits.
+[1] Franco, S. (2020). *Design with Operational Amplifiers and Analog Integrated Circuits.
 
-[2] Analog integrated Circuits by Dr. Shouri Chatterjee. YouTube. Retrieved September 19, 2021, from https://www.youtube.com/playlist?list=PLpiNwuPPfrOlH9S06zLFxbcnVNz5ogDUf. 
+[2] *Analog integrated Circuits by Dr. Shouri Chatterjee*. YouTube. Retrieved September 19, 2021, from https://www.youtube.com/playlist?list=PLpiNwuPPfrOlH9S06zLFxbcnVNz5ogDUf. 
 
-[3] Razavi, Behzad. "Design of Analog CMOS Integrated Circuits".
+[3] Razavi, Behzad. *Design of Analog CMOS Integrated Circuits.
