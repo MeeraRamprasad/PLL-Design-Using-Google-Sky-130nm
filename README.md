@@ -65,7 +65,7 @@ The frequency depends on delay and delay depends on the current supplied. For a 
 
 Figure 6: Image of a Ring Oscillator (Source: Wikipedia)
 
-![currentster](https://en.wikipedia.org/wiki/File:Ring_osc_5.png)
+![image](https://user-images.githubusercontent.com/90972284/133918715-0b44f8ec-d123-4fb7-bf8f-edc329c33166.png)
 
 # Frequency Divider
 The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in back connecting the output to the input. 
