@@ -54,4 +54,6 @@ a. C = C(LPF)/10
 b. Loop Filter Bandwidth = (Highest output frequency of PLL)/10
 
 # Voltage Controlled Oscillator (VCO)
-
+A VCO is implemented using a Ring Oscillator, which is a series of odd number of inverters with a specific delay. The time period of the ring oscillator is given by
+P = 2(delay of each inverter)(inverter count).
+The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. Current starving mechanism is used to control the oscillation frequency.
