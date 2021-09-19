@@ -147,6 +147,9 @@ As seen from the image oscillations have been successfully generated. The oscill
  
     Different components simulated above are combined on spice using the ```.subckt``` command. Illustrated below is the pre-layout simulation of the PLL.
     
+ ![image](https://user-images.githubusercontent.com/90972284/133928714-dd31d9fa-1245-49f5-9fb3-065db36de2fb.png)
+
+    
  ![pll_imp](https://user-images.githubusercontent.com/90972284/133920281-12cd642f-a976-4f9c-b394-525f68748135.jpg)
  
 As seen from the above image, the PLL output follows the reference signal exactly, and suffers a delay less than 0.5 ns. This proves that a high degree of match with the reference signal has been successfully obtained by the PLL.
@@ -160,6 +163,9 @@ Different colours in the layour indicate different materials used to build diffe
 1. PFD
 
     Given below is the layout drawing of the Phase Difference Detecting Circuit. 
+    
+![image](https://user-images.githubusercontent.com/90972284/133928811-8984f05c-0ecb-46b8-b780-d58d1cdf6260.png)
+
 ![PFD_Layout](https://user-images.githubusercontent.com/90972284/133919360-6c598f4e-5366-4410-95ff-29e91c077cc4.jpg)
 
 Total Area of the PFD - 49.1 umsq.
