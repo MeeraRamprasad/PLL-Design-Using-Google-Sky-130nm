@@ -117,7 +117,7 @@ Some standard parameters are considered while making the SPICE files.
 
 Transient analysises for specific time intervals is carried for different circuit components and then the PLL as a whole. Parameters such as jitter and capacitive loading are omitted to maintain simplicity in this particular design. 
 
-## Simulations & Layout
+## Pre-Layout Simulations
 The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
 1. Phase Difference Detection
 
@@ -218,7 +218,7 @@ Total Area of the Charge Pump - 57.7 umsq.
 
 Total Area of the PLL - 493 umsq.
 
-# Post Layout Simulations
+## Post Layout Simulations
 
 Parasitics are extracted from the layout of the PLL circuit. This file is then converted to a SPICE and then simulated. 
 For study purposes, the post-layout simulation has been carried out with a 10ns phase delay and a 1ns phase delay.
