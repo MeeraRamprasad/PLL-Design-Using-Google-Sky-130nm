@@ -1,6 +1,27 @@
 # PLL-Design-Using-Google-Sky-130nm
 A Phase Locked Loop an Analog IP (Intellectual Property) that is used to generate a clock signal for digital synchronous circuit systems. This repo walks through the end-to-end design of a Phase Locked Loop, designed on the Skywater 130nm technology node. The design, simulation and layout of this PLL have been carried out using Open Source tools such as Ngspice (for simulations), Magic (for layout) and the Sky130 PDK (Process Design Kit for the transistor specifications).
 
+# Contents
+- [PLL-Design-Using-Google-Sky-130nm](#pll-design-using-google-sky-130nm)
+- [An Overview of the Design Procedure](#an-overview-of-the-design-procedure)
+- [PLL Components and Working](#pll-components-and-working)
+  * [Phase Frequency Detector (PFD)](#phase-frequency-detector--pfd-)
+  * [Charge Pump](#charge-pump)
+  * [Voltage Controlled Oscillator (VCO)](#voltage-controlled-oscillator--vco-)
+  * [Frequency Divider](#frequency-divider)
+- [PLL Figures of Merit](#pll-figures-of-merit)
+  * [Lock Range](#lock-range)
+  * [Capture Range](#capture-range)
+  * [Settling Time](#settling-time)
+- [Experiments](#experiments)
+  * [Simulations & Layout](#simulations---layout)
+  * [Layout Design](#layout-design)
+- [Post Layout Simulations](#post-layout-simulations)
+- [Final Integration and Tapeout](#final-integration-and-tapeout)
+- [References](#references)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 # An Overview of the Design Procedure
 There are several steps that have to be carried out from the inception of a design till its layout to obtain a precisely functioning IP. The following points discuss the important steps that have been carried out for the PLL.
@@ -207,7 +228,8 @@ For study purposes, the post-layout simulation has been carried out with a 10ns 
 Extraction is carried out using the following code.
 ```
 extract all %extracts all parasitics from the layout
-ext2spice cthresh 0 rethresh 0 %setting the threshold or minimum value of R and C that counts as a parasitic
+ext2spice cthresh 0 rethresh 0 
+% the previous command is basically setting the threshold or minimum value of R and C that counts as a parasitic
 ext2spice %conversion to SPICE
 ```
 
