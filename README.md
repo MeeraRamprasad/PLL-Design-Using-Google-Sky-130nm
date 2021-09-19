@@ -31,8 +31,11 @@ The working of the different components of this control system are discussed bel
 
 # Phase Frequency Detector (PFD)
 The PFD compares the feedback signal with the reference signal. There are two possibilities. 
+
 a. the output lags the reference 
+
 b. the output leads the reference
+
 For these distinct cases, the preceeding rising or falling edges can be detected using a Flip-Flop. Two flip-flops are used, one each for each signal, and their outputs are tied using an AND gate to their respective reset CLR pins. The state diagram of the above circuit is shown below.
 
 Figure 4: State Diagram Explaining the Incorporation of Up and Down signals
@@ -48,12 +51,17 @@ Figure 5: Current Steering Circuit
 
 ![currentster](https://user-images.githubusercontent.com/90972284/133917425-17e6635b-794d-4b83-b5a7-d9b649c8972c.png)
 
-The reluctance of the capacitance to change the charge across it immediately smoothens or averages the voltage. A limitating in this circuit would be the presence of leakage currents even when both transistorys are off. Additionally there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
+The reluctance of the capacitance to change the charge across it immediately smoothens or averages the voltage. A limitating in this circuit would be the presence of leakage currents even when both transistors are off. Additionally there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
 Some rules for picking capacitances:
+
 a. C = C(LPF)/10
+
 b. Loop Filter Bandwidth = (Highest output frequency of PLL)/10
 
 # Voltage Controlled Oscillator (VCO)
 A VCO is implemented using a Ring Oscillator, which is a series of odd number of inverters with a specific delay. The time period of the ring oscillator is given by
 P = 2(delay of each inverter)(inverter count).
-The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. Current starving mechanism is used to control the oscillation frequency.
+The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. Current starving mechanism is used to control the oscillation frequency. The range of frequencies that the VCO can produce must be in agreement with the frequencies required out of the overall PLL.
+
+# Frequency Divider
+The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in back connecting the output to the input. 
