@@ -16,7 +16,7 @@ A Phase Locked Loop an Analog IP (Intellectual Property) that is used to generat
 - [Experiments](#experiments)
   * [Simulations & Layout](#simulations---layout)
   * [Layout Design](#layout-design)
-- [Post Layout Simulations](#post-layout-simulations)
+  * [Post Layout Simulations](#post-layout-simulations)
 - [Final Integration and Tapeout](#final-integration-and-tapeout)
 - [References](#references)
 
