@@ -104,6 +104,8 @@ The first step to simulating the PLL is to simulate and check the working of eac
 
     Illustrated below is a pre-layout simulation of the Phase Different Detection circuit.
     
+![image](https://user-images.githubusercontent.com/90972284/133928275-137b46ff-a0f8-49a4-a777-df77c2597e97.png)
+    
 ![pd](https://user-images.githubusercontent.com/90972284/133919934-34c13a79-48e8-41de-b630-edd636429003.jpg)
 
 As seen from the image, the Down signal is activated using the AND operation illustrated in the schematic.
@@ -111,7 +113,9 @@ As seen from the image, the Down signal is activated using the AND operation ill
 2. Charge Pump
 
     Illustrated below is a pre-layout simulation of the Charge Pump circuit. Initially, it is assumed that there is no charge or voltage built up across the capacitor. 
-    
+
+![image](https://user-images.githubusercontent.com/90972284/133928420-4d48be3f-1252-4af4-b721-2b52a859eb97.png)
+
 ![charge_pump](https://user-images.githubusercontent.com/90972284/133920005-b15162bb-ef90-4a97-8b6c-6adfb79afc88.jpg)
 
 As seen from the image, the voltage across the capacitor is steadly rising. Additionally, the fluctuations in the voltage as it rises are observed, which correspond to the rising and falling of the Up and Down signals.
@@ -119,6 +123,9 @@ As seen from the image, the voltage across the capacitor is steadly rising. Addi
 3. VCO
 
     Illustrated below is a pre-layout simulation of the VCO circuit. 
+    
+![image](https://user-images.githubusercontent.com/90972284/133928476-cde10e1a-1b9e-444c-b62b-08350b9f5328.png)
+
 
 ![3stagevco](https://user-images.githubusercontent.com/90972284/133927729-c4eda51b-8326-4ee0-a64c-5f056daa30fe.jpg)
 
@@ -127,6 +134,8 @@ As seen from the image oscillations have been successfully generated. The oscill
 4. Frequency Divider
 
     Illustrated below is a pre-layout simulation of the Frequency Divider circuit.
+    
+ ![image](https://user-images.githubusercontent.com/90972284/133928562-eddba974-f2a4-4fc6-984d-356fc8ced3f4.png)
     
  ![freq_divider](https://user-images.githubusercontent.com/90972284/133920049-0e7541dc-b3a7-4f4e-bd99-dbe30245784c.jpg)
  
