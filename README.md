@@ -85,3 +85,20 @@ The range of frequencies for which the PLL maintains the lock once it moves from
 # # Settling Time 
 The time within which the PLL is able to lok in from an unlocked state is called the Settling Time of the PLL.
 
+# Experiments
+# # Simulations
+The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
+
+
+![pd](https://user-images.githubusercontent.com/90972284/133919099-a760a68a-dfe4-4f87-b8a7-b9c1b3a8f817.jpg)
+
+![charge_pump](https://user-images.githubusercontent.com/90972284/133919091-51dae6ad-ce2e-4785-95ec-e9830458f482.jpg)
+
+![pll1](https://user-images.githubusercontent.com/90972284/133919116-66a2a889-0130-4c5f-8d02-7b4d3081e5b4.jpg)
+
+![pll2](https://user-images.githubusercontent.com/90972284/133919120-73eb400b-5acd-451c-a68c-5070e1819fa1.jpg)
+
+![pll_imp](https://user-images.githubusercontent.com/90972284/133919122-058ff462-e01c-4f63-9d0f-23309da67c6a.jpg)
+
+# # Layout Design
+
