@@ -86,11 +86,16 @@ The range of frequencies for which the PLL maintains the lock once it moves from
 The time within which the PLL is able to lok in from an unlocked state is called the Settling Time of the PLL.
 
 # Experiments
-# # Simulations
+# # Simulations & Layout
 The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
+1. Phase Difference Detection
+    Illustrated below is a pre-layout simulation of the Phase Different Detection circuit.
+![pd](https://user-images.githubusercontent.com/90972284/133919934-34c13a79-48e8-41de-b630-edd636429003.jpg)
 
-
-![pd](https://user-images.githubusercontent.com/90972284/133919099-a760a68a-dfe4-4f87-b8a7-b9c1b3a8f817.jpg)
+As seen from the image, the Down signal is activated using the AND operation illustrated in the schematic.
+    
+    Given below is the layout drawing of the Phase Difference Detecting Circuit. Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
+![PFD_Layout](https://user-images.githubusercontent.com/90972284/133919360-6c598f4e-5366-4410-95ff-29e91c077cc4.jpg)
 
 ![charge_pump](https://user-images.githubusercontent.com/90972284/133919091-51dae6ad-ce2e-4785-95ec-e9830458f482.jpg)
 
