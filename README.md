@@ -173,6 +173,8 @@ Total Area of the PFD - 49.1 umsq.
 2. Charge Pump
 
     Given below is the layout drawing of the Charge Pump Circuit. 
+    
+![image](https://user-images.githubusercontent.com/90972284/133929047-24cf9b76-605c-45ae-bfcd-b5547dec0a92.png)
 
 ![CP_Layout](https://user-images.githubusercontent.com/90972284/133922736-6d7ff00b-9e6b-4778-83d9-29d749665bef.jpg)
 
@@ -182,12 +184,16 @@ Total Area of the Charge Pump - 132.3 umsq.
 
     Given below is the layout drawing of the VCO Circuit. 
     
+![image](https://user-images.githubusercontent.com/90972284/133928905-09eda42a-bc10-4450-84b8-eb268e781d7d.png)
+    
 ![VCO_Layout](https://user-images.githubusercontent.com/90972284/133923219-914bdef6-33f7-4acb-a663-912e54fc0d66.jpg)
 
 Total Area of the Charge Pump - 57.7 umsq.
 
 4. PLL
     Given below is the layout drawing of the entire PLL Circuit. 
+    
+![image](https://user-images.githubusercontent.com/90972284/133929099-d135f90d-d38c-438e-9a21-ba67d59aa106.png)
     
 ![PLL_Layout](https://user-images.githubusercontent.com/90972284/133923751-20a10bdb-cb5a-4f70-9720-494cf6e9f4b9.jpg)
 
@@ -197,6 +203,13 @@ Total Area of the PLL - 493 umsq.
 
 Parasitics are extracted from the layout of the PLL circuit. This file is then converted to a SPICE and then simulated. 
 For study purposes, the post-layout simulation has been carried out with a 10ns phase delay and a 1ns phase delay.
+
+Extraction is carried out using the following code.
+```
+extract all %extracts all parasitics from the layout
+ext2spice cthresh 0 rethresh 0 %setting the threshold or minimum value of R and C that counts as a parasitic
+ext2spice %conversion to SPICE
+```
 
 a. 10ns Delay
 
