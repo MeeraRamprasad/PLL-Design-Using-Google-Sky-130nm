@@ -154,7 +154,27 @@ Total Area of the Charge Pump - 57.7 umsq.
     
 ![PLL_Layout](https://user-images.githubusercontent.com/90972284/133923751-20a10bdb-cb5a-4f70-9720-494cf6e9f4b9.jpg)
 
+Total Area of the PLL - 493 umsq.
 
+# Post Layout Simulations
+
+Parasitics are extracted from the layout of the PLL circuit. This file is then converted to a SPICE and then simulated. 
+For study purposes, the post-layout simulation has been carried out with a 10ns phase delay and a 1ns phase delay.
+a. 10ns Delay
+
+![postlayout](https://user-images.githubusercontent.com/90972284/133923960-4c7c139d-cba8-42ae-be1f-33f714e10a8b.jpg)
+
+![postlyout2](https://user-images.githubusercontent.com/90972284/133923972-087a2537-a7dc-45f6-ac0a-191b97777837.jpg)
+
+As seen from the above images, the PLL is able to successfully generate the clock signal.
+
+b. 1ns Delay
+
+![postlayout10n1](https://user-images.githubusercontent.com/90972284/133924091-c355269c-d139-425c-8025-a97558786774.jpg)
+
+![postlayout10n2](https://user-images.githubusercontent.com/90972284/133924095-8c70ee64-fc35-4fd1-a4cc-3be1aba9373b.jpg)
+
+As seen from the above images, the PLL is also able to successfully generate the clock signal. Even with a small lag of 1ns, the circuit is successfully functioning.
 
 
 
