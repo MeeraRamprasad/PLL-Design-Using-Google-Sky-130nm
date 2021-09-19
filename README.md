@@ -13,8 +13,8 @@ Figure 1: A Flow-Chart Illustrating the Design FLow
 ![flowchart](https://user-images.githubusercontent.com/90972284/133916350-71b24f85-c8ca-4437-8228-a060fa6b344d.png)
 
 # PLL Components and Working
-A PLL generates a precise and pure clock signal, i.e., a circuit that oscillates between a high and low voltage at a specified frequency. Clock Signals can be generated in two ways. 
-1. Using Quartz Crystals: Upon passing a mechanical stress across the faces of a Quartz crystal, an electric voltage that oscillates at a given frequency is obtained. The frequency spectrum of this signal is pure, and there exist no spikes at any unwanted frequency. However, a pure quartz crystal oscillator suffers a limitation of being restricted to only a single frequency, and cannot be tuned. 
+A PLL generates a precise and pure clock signal, i.e., a signal that oscillates between a high and low voltage at a specified frequency. Clock Signals can be generated in two ways. 
+1. Using Quartz Crystals: Upon passing a mechanical stress across the faces of a Quartz crystal, an electric voltage that oscillates at a given frequency is obtained as a result of the piezoelectric nature of the crystal. The frequency spectrum of this signal is pure, and there exist no spikes at any unwanted frequency. However, a pure quartz crystal oscillator suffers a limitation of being restricted to only a single frequency, and cannot be tuned. 
 2. Voltage Controlled Oscillators: This is a circuit component can be implemented on-chip. It allows a good control over the spectral purity and frequency, and offers the additional feature of tunability. 
 
 PLLs are used to make the VCO mimic the spectral purity of a Quartz oscillator while maintaining flexibility. 
@@ -96,7 +96,7 @@ Some standard parameters are considered while making the SPICE files.
 3. Reference Clock = 5 to 12.5 MHz
 4. Output Clock = 40 to 100 MHz (the Frequency Divider Circuit makes use of 3 inverters, which would result in the overall frequency multiplication by 8 times).
 
-Parameters such as jitter and capacitive loading are omitted to maintain simplicity in this particular design. 
+Transient analysises for specific time intervals is carried for different circuit components and then the PLL as a whole. Parameters such as jitter and capacitive loading are omitted to maintain simplicity in this particular design. 
 
 ## Simulations & Layout
 The first step to simulating the PLL is to simulate and check the working of each of the individual components of the PLL control system.
@@ -110,13 +110,21 @@ As seen from the image, the Down signal is activated using the AND operation ill
 
 2. Charge Pump
 
-    Illustrated below is a pre-layout simulation of the Charge Pump circuit.
+    Illustrated below is a pre-layout simulation of the Charge Pump circuit. Initially, it is assumed that there is no charge or voltage built up across the capacitor. 
     
 ![charge_pump](https://user-images.githubusercontent.com/90972284/133920005-b15162bb-ef90-4a97-8b6c-6adfb79afc88.jpg)
 
-As seen from the image, the voltage across the capacitor is steadly rising. Additionally the oscillating variation can be observed from the circuit as well.
+As seen from the image, the voltage across the capacitor is steadly rising. Additionally, the fluctuations in the voltage as it rises are observed, which correspond to the rising and falling of the Up and Down signals.
 
-3. Frequency Divider
+3. VCO
+
+    Illustrated below is a pre-layout simulation of the VCO circuit. 
+
+![3stagevco](https://user-images.githubusercontent.com/90972284/133927729-c4eda51b-8326-4ee0-a64c-5f056daa30fe.jpg)
+
+As seen from the image oscillations have been successfully generated. The oscillations are full-swing, and this is due to the presence of an additional inverter at the output. 
+
+4. Frequency Divider
 
     Illustrated below is a pre-layout simulation of the Frequency Divider circuit.
     
@@ -126,9 +134,9 @@ As seen from the image, the voltage across the capacitor is steadly rising. Addi
  
  Now that the individual components of the circuit are functioning properly, they can be connected to each other appropriately to evaluate the working of the whole PLL.
  
- 4. PLL 
+ 5. PLL 
  
-    Illustrated below is the pre-layout simulation of the PLL.
+    Different components simulated above are combined on spice using the ```.subckt``` command. Illustrated below is the pre-layout simulation of the PLL.
     
  ![pll_imp](https://user-images.githubusercontent.com/90972284/133920281-12cd642f-a976-4f9c-b394-525f68748135.jpg)
  
