@@ -51,7 +51,7 @@ Figure 5: Current Steering Circuit
 
 ![currentster](https://user-images.githubusercontent.com/90972284/133917425-17e6635b-794d-4b83-b5a7-d9b649c8972c.png)
 
-The reluctance of the capacitance to change the charge across it immediately smoothens or averages the voltage. A limitating in this circuit would be the presence of leakage currents even when both transistors are off. Additionally there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
+The reluctance of the capacitance to change the voltage across it immediately smoothens or averages the voltage. A limitation in this circuit would be the presence of leakage currents even when both transistors are off. Additionally there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
 Some rules for picking capacitances:
 
 a. C = C(LPF)/10
@@ -62,6 +62,10 @@ b. Loop Filter Bandwidth = (Highest output frequency of PLL)/10
 A VCO is implemented using a Ring Oscillator, which is a series of odd number of inverters with a specific delay. The time period of the ring oscillator is given by
 P = 2(delay of each inverter)(inverter count).
 The frequency depends on delay and delay depends on the current supplied. For a larger current supplied, the output gets charged faster. Current starving mechanism is used to control the oscillation frequency. The range of frequencies that the VCO can produce must be in agreement with the frequencies required out of the overall PLL.
+
+Figure 6: Image of a Ring Oscillator (Source: Wikipedia)
+
+![currentster](https://en.wikipedia.org/wiki/File:Ring_osc_5.png)
 
 # Frequency Divider
 The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in back connecting the output to the input. 
