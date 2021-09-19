@@ -9,7 +9,7 @@ A Phase Locked Loop an Analog IP (Intellectual Property) that is used to generat
   * [Charge Pump](#charge-pump)
   * [Voltage Controlled Oscillator (VCO)](#voltage-controlled-oscillator--vco-)
   * [Frequency Divider](#frequency-divider)
-- [PLL Figures of Merit](#pll-figures-of-merit)
+- [Figures of Merit of Phase Locked Loops](#pll-figures-of-merit)
   * [Lock Range](#lock-range)
   * [Capture Range](#capture-range)
   * [Settling Time](#settling-time)
