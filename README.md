@@ -65,7 +65,23 @@ The frequency depends on delay and delay depends on the current supplied. For a 
 
 Figure 6: Image of a Ring Oscillator (Source: Wikipedia)
 
-![image](https://user-images.githubusercontent.com/90972284/133918715-0b44f8ec-d123-4fb7-bf8f-edc329c33166.png)
+![vco](https://user-images.githubusercontent.com/90972284/133918912-b482b1eb-35d4-4c93-aa01-1198ea72416b.jpg)
+
 
 # Frequency Divider
 The frequency divider circuit is designed using a toggling flip-flop. The frequency obtained can be divided by different factors depending on the number of inverters used in back connecting the output to the input. 
+
+Figure 7: Frequency Divider Circuit (Source: Electronics Tutorials)
+
+![image](https://user-images.githubusercontent.com/90972284/133918952-aedebcc9-e6c1-487d-bc49-44b32bd26866.png)
+
+# PLL Figures of Merit
+# # Lock Range
+The range of frequencies for which PLL maintains its lock once it has already been locked is called the Lock Range. This parameter is limited by the dead-zone. 
+
+# # Capture Range
+The range of frequencies for which the PLL maintains the lock once it moves from the unlock to the locked zone. Usually, the capture range is smaller than the lock range. 
+
+# # Settling Time 
+The time within which the PLL is able to lok in from an unlocked state is called the Settling Time of the PLL.
+
