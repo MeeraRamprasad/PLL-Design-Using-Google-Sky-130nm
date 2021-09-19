@@ -54,7 +54,7 @@ Figure 5: Current Steering Circuit
 The reluctance of the capacitance to change the voltage across it immediately smoothens or averages the voltage. A limitation in this circuit would be the presence of leakage currents even when both transistors are off. Additionally there may be high-frequency variations at the output of the charge steering circuit. This can be eradicated using a Low-Pass Filter (LPF).
 Some rules for picking capacitances:
 
-a. C = C(LPF)/10
+a. C = C_LPF/10
 
 b. Loop Filter Bandwidth = (Highest output frequency of PLL)/10
 
@@ -114,15 +114,47 @@ As seen from the image, the voltage across the capacitor is steadly rising. Addi
  Now that the individual components of the circuit are functioning properly, they can be connected to each other appropriately to evaluate the working of the whole PLL.
  
  4. PLL 
- 5. 
+ 
     Illustrated below is the pre-layout simulation of the PLL.
     
  ![pll_imp](https://user-images.githubusercontent.com/90972284/133920281-12cd642f-a976-4f9c-b394-525f68748135.jpg)
 As seen from the above image, the PLL output follows the reference signal exactly, and suffers a delay less than 0.5 ns. This proves that a high degree of match with the reference signal has been successfully obtained by the PLL.
 
-    
-Given below is the layout drawing of the Phase Difference Detecting Circuit. Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
-![PFD_Layout](https://user-images.githubusercontent.com/90972284/133919360-6c598f4e-5366-4410-95ff-29e91c077cc4.jpg)
+Now that the pre-layout simulation of the PLL has been completed and no errors in operation have been observed, the next step to achieving the design goals (layout) can be carried out.
 
 # # Layout Design
+
+Different colours in the layour indicate different materials used to build different lithographical layers in the semiconductor well.
+
+1. PFD
+
+    Given below is the layout drawing of the Phase Difference Detecting Circuit. 
+![PFD_Layout](https://user-images.githubusercontent.com/90972284/133919360-6c598f4e-5366-4410-95ff-29e91c077cc4.jpg)
+
+Total Area of the PFD - 49.1 umsq.
+
+2. Charge Pump
+
+    Given below is the layout drawing of the Charge Pump Circuit. 
+
+![CP_Layout](https://user-images.githubusercontent.com/90972284/133922736-6d7ff00b-9e6b-4778-83d9-29d749665bef.jpg)
+
+Total Area of the Charge Pump - 132.3 umsq.
+
+3. Voltage Controlled Oscillator
+
+    Given below is the layout drawing of the VCO Circuit. 
+    
+![VCO_Layout](https://user-images.githubusercontent.com/90972284/133923219-914bdef6-33f7-4acb-a663-912e54fc0d66.jpg)
+
+Total Area of the Charge Pump - 57.7 umsq.
+
+4. PLL
+    Given below is the layout drawing of the entire PLL Circuit. 
+    
+![PLL_Layout](https://user-images.githubusercontent.com/90972284/133923751-20a10bdb-cb5a-4f70-9720-494cf6e9f4b9.jpg)
+
+
+
+
 
