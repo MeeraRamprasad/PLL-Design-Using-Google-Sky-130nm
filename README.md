@@ -261,4 +261,4 @@ The IP is placed and routed inside the container. PnR can be completed either ma
 
 [2] *Analog integrated Circuits by Dr Shouri Chatterjee*. YouTube. Retrieved September 19, 2021, from https://www.youtube.com/playlist?list=PLpiNwuPPfrOlH9S06zLFxbcnVNz5ogDUf. 
 
-[3] Razavi, Behzad. *Design of Analog CMOS Integrated Circuits.
+[3] Razavi, Behzad. *Design of Analog CMOS Integrated Circuits*.
