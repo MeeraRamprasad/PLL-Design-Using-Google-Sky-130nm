@@ -1,5 +1,5 @@
 * SPICE3 file created from MUX.ext - technology: sky130A
-.include spice_lib/sky130.lib
+.include sky130nm.lib
 .option scale=0.01u
 
 XM1000 Out a_80_62# A GND sky130_fd_pr__nfet_01v8 w=36 l=15
